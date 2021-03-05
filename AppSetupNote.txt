@@ -1,0 +1,46 @@
+Command to create the node project with express
+
+
+> npm init --scope=@gilpil.com  
+-here scope is for organisation lavel project
+-----------------------------------------------------------------------------------------------
+>npm install express --save   
+
+-Install Express in the myapp directory and save it in the dependencies list
+-To install Express temporarily and not add it to the dependencies list then use --no-save
+
+> npm install mysql --save
+-Install mysql driver
+
+------------------------------------------------------------------------------------
+connect with root user and passwore
+mysql> create database gilpilco_gilpil;
+mysql> CREATE USER 'gilpilco_gilpil'@'localhost' IDENTIFIED BY 'gilpilco_gilpil@123';
+mysql> grant all privileges on * . * to 'gilpilco_gilpil'@'localhost';
+mysql> flush privileges;
+mysql> ALTER USER 'gilpilco_gilpil'@'localhost' IDENTIFIED WITH mysql_native_password BY 'gilpilco_gilpil@123';
+mysql> flush privileges;
+
+now you can able to connect the local database with newly created users
+--------------------------------------------------------------------------------
+
+Install nodemon in deve environment for continues server running
+
+> npm install nodemon --save-dev
+
+-The flag save-dev flag is used because these packages are only needed in development environment
+-and are not necessary in the production environment.
+
+add below script in package.json
+
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  }
+
+>npm run start
+
+This will start the nodemon in dev environment
+
+--------------------------------------------------------------------------------------
+

@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000;
+const mysqldbConn = require('./config/mysql.db.config')
 
 app.get('/app', (req, res) => {
   res.send('Welcome to gilpil.com')
@@ -11,29 +12,28 @@ app.get('/app/user', (req, res) => {
 })
 
 app.get('/app/mysqltest',(req,res)=>{
+           
+            mysqldbConn.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
+            console.log('The solution is: ', rows[0].solution);
+            res.send("MySql Connection test result = "+ rows[0].solution);
+            })
+           
+    })
 
-  var mysql = require('mysql')
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'gilpilco_gilpil',
-  password: 'gilpilco_gilpil@123',
-  database: 'gilpilco_gilpil'
+app.get("/app/getAllUserDetails",(req,res)=>{
+          mysqldbConn.query('select * from user',(err,rows)=>{
+
+            if(err){
+              req.fresh('error',err);
+             }else{
+              res.send({data:rows});
+
+            }
+    })
+
+
 })
-
-connection.connect()
-console.log("hello");
-connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
-  if (err) throw err
-  
-
-  console.log('The solution is: ', rows[0].solution);
-  res.send("Connection success and the solution is = "+ rows[0].solution);
-
-})
-
-connection.end()
-})
-
+   
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
+  console.log(`gilpil.com node server listening at http://localhost:${port}`)
 })
