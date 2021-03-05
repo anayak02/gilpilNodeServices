@@ -7,7 +7,7 @@ app.get('/app', (req, res) => {
 })
 
 app.get('/app/user', (req, res) => {
-  res.send('Hello User')
+  res.send('Hello User how are your')
 })
 
 app.get('/app/mysqltest',(req,res)=>{
@@ -15,13 +15,13 @@ app.get('/app/mysqltest',(req,res)=>{
   var mysql = require('mysql')
 var connection = mysql.createConnection({
   host: 'localhost',
-  user: 'root',
-  password: 'root',
+  user: 'gilpilco_gilpil',
+  password: 'gilpilco_gilpil@123',
   database: 'gilpilco_gilpil'
 })
 
 connection.connect()
-
+console.log("hello");
 connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
   if (err) throw err
   
