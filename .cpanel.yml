@@ -1,6 +1,6 @@
 ---
 deployment:
   tasks:
-    - export DEPLOYPATH=/home/user/public_html/app/
+    - export DEPLOYPATH=/home4/gilpilco/public_html/app/
     - /bin/cp -r * $DEPLOYPATH
     
