@@ -7,6 +7,11 @@ router.get('/findAllUsers',function(req,res,next){
     res.send("hello all user");
 })
 
+router.post('/b', function(req, res,next) {
+     
+     res.send("emaiid \t="+req.body.email+"\t password \t ="+req.body.password);
+});
+
 router.get("/getAllUserDetails",(req,res,next)=>{
            mysqldbConn.query('select * from user',(err,rows)=>{
                if(err){

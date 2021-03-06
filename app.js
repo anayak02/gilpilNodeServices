@@ -6,6 +6,7 @@ const userRouter = require('./routes/user-router');
 const appCommonRouter = require('./routes/app-common-router');
 
 
+
 /**
  *   For security check need to add below line Access-Control-Allow-Origin
  *   it tell that only the give URL are allow to access the resource
@@ -29,6 +30,12 @@ app.use((req,res,next)=>{
     next();
 })
 
+// parse requests of content-type - application/x-www-form-urlencoded
+app.use(express.urlencoded({extended:true}))
+// parse requests of content-type - application/json
+app.use(express.json());
+//Parses HTTP body accepted Content-Type is application/octet-stream.
+app.use(express.raw());
 // All the router for restFull web service
 app.use('/app',appCommonRouter);
 app.use('/app/user',userRouter);

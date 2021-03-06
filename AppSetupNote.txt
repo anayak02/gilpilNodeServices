@@ -1,6 +1,13 @@
-Command to create the node project with express
 
+-----------------------------------------------------------------------------------
 
+> npm install body-parser --save
+
+Body Parser is Node.js body parsing middleware. 
+Parse incoming request bodies in a middleware before your handlers, 
+available under the req.body property.
+
+-----------------------------------------------------------------------------------
 > npm init --scope=@gilpil.com  
 -here scope is for organisation lavel project
 -----------------------------------------------------------------------------------------------
