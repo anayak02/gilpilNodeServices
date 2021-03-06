@@ -10,17 +10,18 @@ const mysqldbConn = require('./config/mysql.db.config')
  * */
 app.use((req,res,next)=>{
   
-  const corsWhitelist = [
+    const corsWhitelist = [
     'http://localhost:4200',
     'https://www.gilpil.com',
     'http://www.gilpil.com',
     ];
-    console.log("Request URL Comming from : ",req.headers.origin);
-    console.log(">>",corsWhitelist.indexOf(req.headers.origin))
-    if (corsWhitelist.indexOf(req.headers.origin) !== -1) {
+    
+    //console.log("Request URL Comming from : ",req.headers.origin);
+    //console.log("corsWhitelist value : ",corsWhitelist.indexOf(req.headers.origin))
+    //if (corsWhitelist.indexOf(req.headers.origin) !== -1) {
         res.header('Access-Control-Allow-Origin', req.headers.origin);
         res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-    }
+    //}
    
     next();
 })
@@ -43,7 +44,7 @@ app.get('/app/mysqltest',(req,res)=>{
     })
 
 app.get("/app/user/getAllUserDetails",(req,res)=>{
-          
+          console.log(">>>>>>");
           mysqldbConn.query('select * from user',(err,rows)=>{
 
             if(err){
