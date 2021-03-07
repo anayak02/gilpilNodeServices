@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const port = process.env.PORT || 3000;
 const mysqldbConn = require('./config/mysql.db.config')
-const userRouter = require('./routes/user-router');
-const appCommonRouter = require('./routes/app-common-router');
+const userRouter = require('./routes/user.router');
+const appRouter = require('./routes/app.router');
 
 
 
@@ -37,7 +37,7 @@ app.use(express.json());
 //Parses HTTP body accepted Content-Type is application/octet-stream.
 app.use(express.raw());
 // All the router for restFull web service
-app.use('/app',appCommonRouter);
+app.use('/app',appRouter);
 app.use('/app/user',userRouter);
 
 

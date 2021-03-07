@@ -13,13 +13,18 @@ router.post('/b', function(req, res,next) {
 });
 
 router.get("/getAllUserDetails",(req,res,next)=>{
+     console.log(">d>");
+         try{
            mysqldbConn.query('select * from user',(err,rows)=>{
                if(err){
                     req.fresh('error',err);
                 }else{
-                    res.send({rows:rows});
+                    res.status(200).send({rows:rows});
                 }
             })
+        }catch(e){
+            res.status(400).send(e.message);
+        }
 })
 
 module.exports = router;
