@@ -9,11 +9,11 @@ router.get('/',(req,res,next)=>{
 router.post('/signup',(req,res,next)=>{
 
   console.log(req.body.email);
-    // req.body.password
-    // req.body.mobileNumber
-    // req.body.dateOfBirth
-    // req.body.agree
-    res.send("signup");
+  console.log(req.body.password);
+  console.log(req.body.mobileNumber);
+  console.log(req.body.dob);
+  console.log(req.body.agree);
+  res.send("success");
 
 })
 

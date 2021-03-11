@@ -37,8 +37,8 @@ app.use(express.json());
 //Parses HTTP body accepted Content-Type is application/octet-stream.
 app.use(express.raw());
 // All the router for restFull web service
-app.use('/app',appRouter);
-app.use('/app/user',userRouter);
+app.use('/app/',appRouter);
+
 
 
 app.get('/app/mysqltest',(req,res)=>{
