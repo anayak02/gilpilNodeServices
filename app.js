@@ -30,6 +30,7 @@ app.use((req,res,next)=>{
     next();
 })
 
+
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({extended:true}))
 // parse requests of content-type - application/json
@@ -37,8 +38,8 @@ app.use(express.json());
 //Parses HTTP body accepted Content-Type is application/octet-stream.
 app.use(express.raw());
 // All the router for restFull web service
-app.use('/app/',appRouter);
-
+app.use('/app',appRouter);
+app.use('/app/user',userRouter)
 
 
 app.get('/app/mysqltest',(req,res)=>{
