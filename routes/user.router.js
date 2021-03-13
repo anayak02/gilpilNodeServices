@@ -54,7 +54,7 @@ router.post('/signin',(req,res)=>{
 
     }catch(e){
         console.log(chalk.red("Error"+e));
-        res.status(400).send("Erro : "+e.message)
+        res.status(400).send({result:e.message})
     }
     
     
