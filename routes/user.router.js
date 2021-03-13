@@ -64,4 +64,19 @@ router.get("/getAllUserDetails",(req,res,next)=>{
         }
 })
 
+router.get("/getAllUserDetails1",(req,res,next)=>{
+     
+    try{
+       mysqldbConn.query('select * from user',(err,rows)=>{
+           if(err){
+                req.fresh('error',err);
+            }else{
+                res.status(200).send({items:rows});
+            }
+        })
+    }catch(e){
+        res.status(400).send(e.message);
+    }
+})
+
 module.exports = router;
