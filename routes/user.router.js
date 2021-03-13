@@ -14,6 +14,7 @@ router.post('/b', function(req, res,next) {
      res.send("emaiid \t="+req.body.email+"\t password \t ="+req.body.password);
 });
 
+/* This router is for user singin service check*/
 router.post('/signin',(req,res)=>{
     console.log(chalk.bold.green("email = ",req.body.email));
     console.log(chalk.bold.green("password = ",req.body.password));
@@ -59,6 +60,8 @@ router.post('/signin',(req,res)=>{
     
     
 })
+
+/* This router service is for new signup user */
 router.post('/signup',(req,res)=>{
 
     console.log(req.body.email);
