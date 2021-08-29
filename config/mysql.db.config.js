@@ -6,11 +6,9 @@ var mysqldbConn = mysql.createConnection({
   database: 'gilpilco_gilpil'
 })
 
-mysqldbConn.connect(function(err) {
-    if (err) throw err;
-    console.log("MySql Database Connected!");
+mysqldbConn.connect(function (err) {
+  if (err) throw err;
+  console.log("MySql Database Connected!");
 });
-
 module.exports = mysqldbConn;
-
 
